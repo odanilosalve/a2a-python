@@ -354,7 +354,7 @@ class RestTransport(ClientTransport):
             mapped = _parse_rest_error(error_payload, str(e))
             if mapped:
                 raise mapped from e
-        except (json.JSONDecodeError, ValueError):
+        except ValueError:
             pass
 
         status_code = e.response.status_code
